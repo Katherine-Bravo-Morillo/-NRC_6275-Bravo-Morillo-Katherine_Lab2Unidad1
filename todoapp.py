@@ -33,7 +33,7 @@ def enviar():
 def borrar():
     if request.method == "POST":
         tarea = request.form.get("palabra")
-        lista_Tareas.remove(tarea)
+        lista_Tareas.remove(tarea) #Metodo para eliminar un dato
         return redirect("/")
 
 #main del programa para ejecutar las funciones
