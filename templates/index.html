@@ -17,7 +17,7 @@
         crossorigin="anonymous"></script>
     <title>Lista de tareas</title>
 </head>
-<body style="background: rgba(167, 230, 153, 0.2);border-radius: 15px;box-shadow: 7px 13px 37px rgb(165, 161, 161);">
+<body style="background: rgba(140, 204, 125, 0.2);border-radius: 15px;box-shadow: 7px 13px 37px rgb(165, 161, 161);">
 	<center> <h1 style=" font-family: fantasy;" >LISTA DE TAREAS</h1></center>
 	{% block body %}
 	  <!--Encabezado del index principal-->
@@ -35,13 +35,14 @@
 <!--Controlador para el ingreso de tareas-->
 <form action="{{ url_for('enviar') }}" method="post">
 	<div  class="col-sm-10"> <!--Clase de Bosstrap-->
-	<label>Ingresar tareas</label>  
+	<label>Ingresar tareas</label>
+
 	 <input type="texto" name="Ingresar_tarea" class="form-control"  placeholder="Ingrese su tarea">
 </div>
 <!--Controlador para el correo electronico-->
 
 	<div class= "col-sm-10">
-		<label>Correo electronico</label>
+		<label>Correo electronico</label> <br>
 		<input type="email" class="form-control" id="usr"  placeholder="Ingrese el correo electronico" name="Ingresar_Correo">
 		<ul">
 	
@@ -49,7 +50,7 @@
 	</div>
 	<!--Controlador para el nivel de prioridades medio,alto y-->
 	<div  class="col-sm-10">
-		<label>Nivel de prioridad</label>
+		<label>Nivel de prioridad</label> <br>
 		<select class="form-control" name="Ingresar_prioridad">
 			<option value="1">Bajo</option>
 			<option value="2">Medio</option>
@@ -64,9 +65,12 @@
 	<br>	<label>Eliminar tarea</label>
 <form action="{{ url_for('borrar') }}" method="post">
 	<input type="texto" name="palabra"  class="form-control" id="usr" placeholder="Ingrese lista a borrar">
-	<br><button>Borrar</button>
+	<br><button>Borrar</button> 
 </form>
 </div>
+<br>
+<br><br>
+<img src="https://www.usfq.edu.ec/sites/default/files/styles/min_mobile/public/2021-06/banner_administracion_de_empresas_01.jpg?itok=646kCMQi" width="85%" height="300px ">
 	{% endblock %}
 </body>
 </html>
