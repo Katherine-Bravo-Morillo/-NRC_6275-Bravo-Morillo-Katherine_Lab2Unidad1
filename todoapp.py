@@ -26,10 +26,10 @@ def enviar():
 		
 		return redirect("/")
 
-#Define la ruta el borrado
+#Define la ruta el borrado con sus metodos
 @app.route("/borrar", methods=["GET", "POST"])
 
-#Funciuon para el borrar datos
+#Funcion para el borrar datos
 def borrar():
     if request.method == "POST":
         tarea = request.form.get("palabra")
