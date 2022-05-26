@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <title>Lista de tareas</title>
+</head>
+<body style="background: rgba(233, 226, 226, 0.2);border-radius: 15px;box-shadow: 7px 13px 37px rgb(165, 161, 161);">
+	<center> <h1 style=" font-family: fantasy;" >LISTA DE TAREAS</h1></center>
+	{% block body %}
+	  <!--Encabezado del index principal-->
+<ul>	 
+	{% for tarea in tareas %}
+	<li id="tareas">{{ tarea }}</li>
+	{% endfor %}
+</ul>
+			
+<!--Nombre de la función que permite enviar-->
+<a href="{{ url_for('enviar') }}"></a>
+<!--Etiqueta para agregar titulo con estilos CSS-->
+<h1 class="col-sm-10" style=" font-family: fantasy;">Agregar tareas</h1>
+<!--Metodo para enviar las tareas -->
+<!--Controlador para el ingreso de tareas-->
+<form action="{{ url_for('enviar') }}" method="post">
+	<div  class="col-sm-10"> <!--Clase de Bosstrap-->
+	<label>Ingresar tareas</label>  
+	 <input type="texto" name="Ingresar_tarea" class="form-control"  placeholder="Ingrese su tarea">
+</div>
+<!--Controlador para el correo electronico-->
+
+	<div class= "col-sm-10">
+		<label>Correo electronico</label>
+		<input type="email" class="form-control" id="usr"  placeholder="Ingrese el correo electronico" name="Ingresar_Correo">
+		<ul">
+	
+</ul>
+	</div>
+	<!--Controlador para el nivel de prioridades medio,alto y-->
+	<div  class="col-sm-10">
+		<label>Nivel de prioridad</label>
+		<select class="form-control" name="Ingresar_prioridad">
+			<option value="1">Bajo</option>
+			<option value="2">Medio</option>
+			<option value="3">Alto</option>
+		</select>	<br>
+		<button>Agregar</button>
+	</div>
+</form>	
+<!--Controlador para eliminar tareas asignadas -->
+<div class="col-sm-10">
+	<br>	<label>Eliminar tarea</label>
+<form action="{{ url_for('borrar') }}" method="post">
+	<input type="texto" name="palabra"  class="form-control" id="usr" placeholder="Ingrese lista a borrar">
+	<br><button>Borrar</button>
+</form>
+</div>
+	{% endblock %}
+</body>
+</html>
