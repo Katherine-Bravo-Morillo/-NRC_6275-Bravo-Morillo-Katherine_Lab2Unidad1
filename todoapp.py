@@ -36,6 +36,6 @@ def borrar():
         lista_Tareas.remove(tarea)
         return redirect("/")
 
-#main del programa
+#main del programa para ejecutar las funciones
 if __name__ == "__main__":
 	app.run(debug=True)
